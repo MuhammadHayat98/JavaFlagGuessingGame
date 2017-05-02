@@ -10,10 +10,12 @@ import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+import javax.swing.JTextField;
 
 public class ShowCaseGUI {
 
 	private JFrame frame;
+	private JTextField txtPleaseSelectThe;
 
 	/**
 	 * Launch the application.
@@ -48,15 +50,21 @@ public class ShowCaseGUI {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Easy");
-		btnNewButton.setBounds(10, 227, 109, 23);
+		btnNewButton.setBounds(10, 155, 109, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Medium");
-		btnNewButton_1.setBounds(165, 227, 109, 23);
+		btnNewButton_1.setBounds(162, 155, 109, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Hard");
-		btnNewButton_2.setBounds(315, 227, 109, 23);
+		btnNewButton_2.setBounds(315, 155, 109, 23);
 		frame.getContentPane().add(btnNewButton_2);
+		
+		txtPleaseSelectThe = new JTextField();
+		txtPleaseSelectThe.setText("Please select the difficulty.");
+		txtPleaseSelectThe.setBounds(134, 11, 151, 20);
+		frame.getContentPane().add(txtPleaseSelectThe);
+		txtPleaseSelectThe.setColumns(10);
 	}
 }
