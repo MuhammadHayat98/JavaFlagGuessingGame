@@ -11,11 +11,12 @@ import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Font;
 
 public class ShowCaseGUI {
 
 	private JFrame frame;
-	private JTextField txtPleaseSelectThe;
 
 	/**
 	 * Launch the application.
@@ -50,21 +51,23 @@ public class ShowCaseGUI {
 		frame.getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("Easy");
+		btnNewButton.setToolTipText("You get unlimited tries and the most recognizable flags appear");
 		btnNewButton.setBounds(10, 155, 109, 23);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Medium");
+		btnNewButton_1.setToolTipText("You get 10 tries and have a few more flags to choose from");
 		btnNewButton_1.setBounds(162, 155, 109, 23);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Hard");
+		btnNewButton_2.setToolTipText("You get 5 tries and all flags appear");
 		btnNewButton_2.setBounds(315, 155, 109, 23);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		txtPleaseSelectThe = new JTextField();
-		txtPleaseSelectThe.setText("Please select the difficulty.");
-		txtPleaseSelectThe.setBounds(134, 11, 151, 20);
-		frame.getContentPane().add(txtPleaseSelectThe);
-		txtPleaseSelectThe.setColumns(10);
+		JLabel lblNewLabel = new JLabel("Please select a difficulty");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel.setBounds(140, 11, 205, 51);
+		frame.getContentPane().add(lblNewLabel);
 	}
 }
