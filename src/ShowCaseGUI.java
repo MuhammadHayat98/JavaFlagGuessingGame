@@ -3,6 +3,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -34,6 +36,7 @@ public class ShowCaseGUI  {
 				}
 			}
 		});
+		
 	}
 
 	/**
@@ -51,6 +54,22 @@ public class ShowCaseGUI  {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		String[][] countries = {{"Iran", "res/Iran.png"}, 
+				{"Mexico", "Mexico.png"}, 
+				{"India", "India.png"}, 
+				{"America", "America.png"}, 
+				{"China", "China.png"}, 
+				{"Korea", "Korea.png"}, 
+				{"Japan", "Japan.png"}, 
+				{"Saudi Arabia", "Saudi Arabia.png"}, 
+				{"Kuwait", "Kuwait.png"}, 
+				{"Philippines", "Philippines.png"}, 
+				{"Armenia", "res/Armenia.png"}, 
+				{"Russia", "Russia.png"}, 
+				{"Brazil", "Brazil.png"}, 
+				{"Argentina", "res/Argentina.png"}, 
+				{"El Salvador", "El Salvador.png"}, 
+				{"Guatemala", "Guatemala.png"}};
 		
 		JButton btnNewButton = new JButton("Easy");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -69,12 +88,13 @@ public class ShowCaseGUI  {
 				 * The easy method will also be call the easy class and its easy method invoking the the game with easy difficulty
 				 * remove this line once method is inserted
 				 */
+				
 			}
 		});
 		btnNewButton.setToolTipText("You get unlimited tries and the most recognizable flags appear");
 		btnNewButton.setBounds(10, 155, 109, 23);
 		frame.getContentPane().add(btnNewButton);
-		
+		JPanel PicPanel = new JPanel();
 		JButton btnNewButton_1 = new JButton("Medium");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,6 +112,14 @@ public class ShowCaseGUI  {
 				 * The medium method will also be call the medium class and its easy method invoking the the game with medium difficulty
 				 * remove this line once method is inserted
 				 */
+				
+				ImageIcon image = new ImageIcon(countries[0][1]);
+				
+				PicPanel.setBounds(35, 11, 360, 150);
+				frame.getContentPane().add(PicPanel);
+				JLabel lblNewLabel_1 = new JLabel(image);
+				PicPanel.add(lblNewLabel_1);
+				PicPanel.setVisible(true);
 			}
 		});
 		btnNewButton_1.setToolTipText("You get 10 tries and have a few more flags to choose from");
@@ -108,6 +136,9 @@ public class ShowCaseGUI  {
 				 * arguments are components which are grabbed using the frame object methods
 				 * runs "removeAllStuff"
 				 */
+
+				
+			
 				RemoveStuffs r = new RemoveStuffs();
 				r.removeAllStuff(frame.getContentPane().getComponent(2), frame.getContentPane().getComponent(1), 
 						frame.getContentPane().getComponent(0), frame.getContentPane().getComponent(3));
@@ -115,8 +146,12 @@ public class ShowCaseGUI  {
 				 * The hard method will also be call the hard class and its easy method invoking the the game with hard difficulty
 				 * remove this line once method is inserted
 				 */
+				Pics(PicPanel, frame, countries);
+				PicPanel.revalidate();
+			
 			}
 		});
+		
 		btnNewButton_2.setToolTipText("You get 5 tries and all flags appear");
 		btnNewButton_2.setBounds(315, 155, 109, 23);
 		frame.getContentPane().add(btnNewButton_2);
@@ -127,4 +162,19 @@ public class ShowCaseGUI  {
 		frame.getContentPane().add(lblNewLabel);
 		
 	}
+	public void Pics(java.awt.Container picPanel, javax.swing.JFrame picFrame, String[][] array) {
+		ImageIcon image = new ImageIcon(array[0][1]);
+		picPanel.setBounds(35, 11, 360, 150);
+		frame.getContentPane().add(picPanel);
+		JLabel lblNewLabel_1 = new JLabel(image);
+		picPanel.add(lblNewLabel_1);
+		picPanel.setVisible(true);
+		picPanel.revalidate();
+		picPanel.update(null);
+
+		
+		
+		
+	}
+	
 }
