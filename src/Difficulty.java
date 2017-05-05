@@ -1,3 +1,4 @@
+import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,15 +20,14 @@ public class Difficulty extends ShowCaseGUI{
 		JLabel lblNewLabel_1 = new JLabel(image);
 		picPanel.add(lblNewLabel_1);
 		picPanel.setVisible(true);
-		JTextField guess = new JTextField();
+		
 		textField1 = new JTextField();
 		textField1.setBounds(135, 198, 156, 20);
 		picFrame.getContentPane().add(textField1);
 		textField1.setColumns(10);
-		JButton btnEnter = new JButton("Enter");
+		Button btnEnter = new Button("Enter");
 		btnEnter.setBounds(294, 197, 70, 23);
 		picFrame.getContentPane().add(btnEnter);
-		textField1.getText();
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setBounds(100, 198, 25, 20);
 		picFrame.getContentPane().add(lblNewLabel);
@@ -38,7 +38,7 @@ public class Difficulty extends ShowCaseGUI{
 				int flag;
 				int count=0;
 				String guess = textField1.getText();
-				if(guess.equals(array[0][0])) {
+				if(guess.equalsIgnoreCase(array[0][0])) {
 					System.out.print("noicew");
 				lblNewLabel.setIcon(new ImageIcon("Icons/rsz_checkmark-xxl.png"));
 				}

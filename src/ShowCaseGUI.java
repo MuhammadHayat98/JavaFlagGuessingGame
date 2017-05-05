@@ -142,13 +142,7 @@ public class ShowCaseGUI  {
 				RemoveStuffs r = new RemoveStuffs();
 				r.removeAllStuff(frame.getContentPane().getComponent(2), frame.getContentPane().getComponent(1), 
 						frame.getContentPane().getComponent(0), frame.getContentPane().getComponent(3));
-				/*
-				 * The hard method will also be call the hard class and its easy method invoking the the game with hard difficulty
-				 * remove this line once method is inserted
-				 */
-				Difficulty pic = new Difficulty();
-				
-				pic.Hard(PicPanel, frame, countries, null);
+				Difficulty.Hard(PicPanel, frame, countries, null);
 				
 			
 			}
