@@ -55,21 +55,21 @@ public class ShowCaseGUI  {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		String[][] countries = {{"Iran", "res/Iran.png"}, 
-				{"Mexico", "Mexico.png"}, 
-				{"India", "India.png"}, 
-				{"America", "America.png"}, 
-				{"China", "China.png"}, 
-				{"Korea", "Korea.png"}, 
-				{"Japan", "Japan.png"}, 
-				{"Saudi Arabia", "Saudi Arabia.png"}, 
-				{"Kuwait", "Kuwait.png"}, 
-				{"Philippines", "Philippines.png"}, 
+				{"Mexico", "res/Mexico.png"}, 
+				{"India", "res/India.png"}, 
+				{"America", "res/America.png"}, 
+				{"China", "res/China.png"}, 
+				{"Korea", "res/Korea.png"}, 
+				{"Japan", "res/Japan.png"}, 
+				{"Saudi Arabia", "res/Saudi Arabia.png"}, 
+				{"Kuwait", "res/Kuwait.png"}, 
+				{"Philippines", "res/Philippines.png"}, 
 				{"Armenia", "res/Armenia.png"}, 
-				{"Russia", "Russia.png"}, 
-				{"Brazil", "Brazil.png"}, 
+				{"Russia", "res/Russia.png"}, 
+				{"Brazil", "res/Brazil.png"}, 
 				{"Argentina", "res/Argentina.png"}, 
-				{"El Salvador", "El Salvador.png"}, 
-				{"Guatemala", "Guatemala.png"}};
+				{"El Salvador", "res/El Salvador.png"}, 
+				{"Guatemala", "res/Guatemala.png"}};
 		
 		JButton btnNewButton = new JButton("Easy");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -146,8 +146,10 @@ public class ShowCaseGUI  {
 				 * The hard method will also be call the hard class and its easy method invoking the the game with hard difficulty
 				 * remove this line once method is inserted
 				 */
-				Pics(PicPanel, frame, countries);
-				PicPanel.revalidate();
+				Difficulty pic = new Difficulty();
+				
+				pic.Hard(PicPanel, frame, countries, null);
+				
 			
 			}
 		});
@@ -161,20 +163,21 @@ public class ShowCaseGUI  {
 		lblNewLabel.setBounds(140, 11, 205, 51);
 		frame.getContentPane().add(lblNewLabel);
 		
+		
+		
 	}
-	public void Pics(java.awt.Container picPanel, javax.swing.JFrame picFrame, String[][] array) {
-		ImageIcon image = new ImageIcon(array[0][1]);
+	/*public void Pics(java.awt.Container picPanel, javax.swing.JFrame picFrame, String[][] array) {
+		
+	ImageIcon image = new ImageIcon(array[0][1]);
 		picPanel.setBounds(35, 11, 360, 150);
 		frame.getContentPane().add(picPanel);
 		JLabel lblNewLabel_1 = new JLabel(image);
 		picPanel.add(lblNewLabel_1);
 		picPanel.setVisible(true);
-		picPanel.revalidate();
-		picPanel.update(null);
-
 		
 		
 		
-	}
+		
+	}*/
 	
 }
