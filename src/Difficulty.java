@@ -38,7 +38,7 @@ public class Difficulty extends ShowCaseGUI{
 				int flag;
 				int count=0;
 				String guess = textField1.getText();
-				if(guess.equals("Iran")) {
+				if(guess.equals(array[0][0])) {
 					System.out.print("noicew");
 				lblNewLabel.setIcon(new ImageIcon("Icons/rsz_checkmark-xxl.png"));
 				}
