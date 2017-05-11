@@ -51,6 +51,7 @@ public class ShowCaseGUI  {
 	 */
 	public void initialize() {
 		frame = new JFrame();
+		JPanel PicPanel = new JPanel();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -88,13 +89,14 @@ public class ShowCaseGUI  {
 				 * The easy method will also be call the easy class and its easy method invoking the the game with easy difficulty
 				 * remove this line once method is inserted
 				 */
+				Difficulty.Easy(PicPanel, frame, countries, null);
 				
 			}
 		});
 		btnNewButton.setToolTipText("You get unlimited tries and the most recognizable flags appear");
 		btnNewButton.setBounds(10, 155, 109, 23);
 		frame.getContentPane().add(btnNewButton);
-		JPanel PicPanel = new JPanel();
+		
 		JButton btnNewButton_1 = new JButton("Medium");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -112,14 +114,8 @@ public class ShowCaseGUI  {
 				 * The medium method will also be call the medium class and its easy method invoking the the game with medium difficulty
 				 * remove this line once method is inserted
 				 */
+				Difficulty.Medium(PicPanel, frame, countries, null);
 				
-				ImageIcon image = new ImageIcon(countries[0][1]);
-				
-				PicPanel.setBounds(35, 11, 360, 150);
-				frame.getContentPane().add(PicPanel);
-				JLabel lblNewLabel_1 = new JLabel(image);
-				PicPanel.add(lblNewLabel_1);
-				PicPanel.setVisible(true);
 			}
 		});
 		btnNewButton_1.setToolTipText("You get 10 tries and have a few more flags to choose from");
@@ -137,11 +133,13 @@ public class ShowCaseGUI  {
 				 * runs "removeAllStuff"
 				 */
 
-				
-			
 				RemoveStuffs r = new RemoveStuffs();
 				r.removeAllStuff(frame.getContentPane().getComponent(2), frame.getContentPane().getComponent(1), 
 						frame.getContentPane().getComponent(0), frame.getContentPane().getComponent(3));
+				/*
+				 * Hard is accessed in a static way instead of instantiating an object
+				 * This slightly increases speed and prevents a java warning 
+				 */
 				Difficulty.Hard(PicPanel, frame, countries, null);
 				
 			
