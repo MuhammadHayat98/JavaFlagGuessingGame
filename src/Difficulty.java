@@ -59,8 +59,9 @@ public class Difficulty extends ShowCaseGUI{
 		/*Generating random image code goes here
 		 * 
 		 */
-		
-		ImageIcon image = new ImageIcon(array[0][1]);
+		FlagGenerator flagGen = new FlagGenerator(2);
+		int flag = flagGen.getFlag();
+		ImageIcon image = new ImageIcon(array[flag][1]);
 		picPanel.setBounds(35, 11, 360, 150);
 		picFrame.getContentPane().add(picPanel);
 		JLabel lblNewLabel_1 = new JLabel(image);
@@ -78,27 +79,31 @@ public class Difficulty extends ShowCaseGUI{
 		picFrame.getContentPane().add(lblNewLabel);
 		
 		btnEnter.addActionListener(new ActionListener() {
-		int count = 10;
+		int count = 10;	
 			public void actionPerformed(ActionEvent arg0) {
 				
-				int flag;
+				Label label = new Label(count + " tries remain");
 				
 				
 				String guess = textField1.getText();
-				if(guess.equalsIgnoreCase(array[0][0])) {
-					
+				if(guess.equalsIgnoreCase(array[flag][0])) {
+					int tries = count+1;
+					//Label label = new Label("It only took you " + tries + " tries, now here's another");
+					//label.setBounds(135, 224, 250, 22);
+					//picFrame.getContentPane().add(label);
 				lblNewLabel.setIcon(new ImageIcon("Icons/rsz_checkmark-xxl.png"));
 				}
 				else
 				{
 					count--;
-					
+					picFrame.getContentPane().remove(label);
+					 label = new Label(count + " tries remain");
 					lblNewLabel.setIcon(new ImageIcon("Icons/rsz_milker-x-icon.png"));
 				}
-				Label label = new Label(count + " tries remain");
+				System.out.println(count);
+				
 				label.setBounds(135, 224, 156, 22);
 				picFrame.getContentPane().add(label);
-				
 			}
 		});
 		
@@ -109,8 +114,10 @@ public class Difficulty extends ShowCaseGUI{
 		/*Generating random image code goes here
 		 * 
 		 */
-		
-		ImageIcon image = new ImageIcon(array[0][1]);
+		FlagGenerator flagGen = new FlagGenerator(1);
+		int flag = flagGen.getFlag();
+		System.out.println(" " + flag);
+		ImageIcon image = new ImageIcon(array[flag][1]);
 		picPanel.setBounds(35, 11, 360, 150);
 		picFrame.getContentPane().add(picPanel);
 		JLabel lblNewLabel_1 = new JLabel(image);
@@ -128,27 +135,30 @@ public class Difficulty extends ShowCaseGUI{
 		picFrame.getContentPane().add(lblNewLabel);
 		
 		btnEnter.addActionListener(new ActionListener() {
-		
+		int count = 0;
 			public void actionPerformed(ActionEvent arg0) {
-				
-				int flag;
-				int count=0;
+				 
+			
 				String guess = textField1.getText();
-				if(guess.equalsIgnoreCase(array[0][0])) {
-					count++;
+				if(guess.equalsIgnoreCase(array[flag][0])) {
+					int tries = count+1;
+					Label label = new Label("It only took you " + tries + " tries, now here's another");
+					label.setBounds(135, 224, 250, 22);
+					picFrame.getContentPane().add(label);
+					
 				lblNewLabel.setIcon(new ImageIcon("Icons/rsz_checkmark-xxl.png"));
 				}
 				else
 				{
+						
 					lblNewLabel.setIcon(new ImageIcon("Icons/rsz_milker-x-icon.png"));
+					count++;
 				}
 				
 				
 			}
 		});
-		Label label = new Label("");
-		label.setBounds(135, 224, 156, 22);
-		picFrame.getContentPane().add(label);
+		
 	}
 	
 	
